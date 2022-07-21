@@ -28,6 +28,7 @@
     "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test-selenium":"mocha _tests_ --colors --timeout 60000",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -52,6 +53,7 @@
     "@axe-devtools/reporter": "^4.4.0",
     "@axe-devtools/webdriverjs": "^4.4.2",
     "chai": "^4.3.6",
-    "mocha": "^10.0.0"
+    "mocha": "^10.0.0",
+    "selenium-webdriver": "^4.3.1"
   }
 }

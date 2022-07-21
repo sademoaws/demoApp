@@ -8305,7 +8305,7 @@
   "resolved" "https://registry.npmjs.org/select-hose/-/select-hose-2.0.0.tgz"
   "version" "2.0.0"
 
-"selenium-webdriver@>= 2.53.1":
+"selenium-webdriver@^4.3.1", "selenium-webdriver@>= 2.53.1":
   "integrity" "sha512-TjH/ls1WKRQoFEHcqtn6UtwcLnA3yvx08v9cSSFYvyhp8hJWRtbe9ae2I8uXPisEZ2EaGKKoxBZ4EHv0BJM15g=="
   "resolved" "https://registry.npmjs.org/selenium-webdriver/-/selenium-webdriver-4.3.1.tgz"
   "version" "4.3.1"
