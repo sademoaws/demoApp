@@ -47,5 +47,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@axe-devtools/reporter": "^4.4.0",
+    "@axe-devtools/webdriverjs": "^4.4.2",
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0"
   }
 }
