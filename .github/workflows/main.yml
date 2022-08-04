@@ -1,0 +1,17 @@
+name: GitHub Actions Demo
+on:
+  push:
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    name: checkout
+    uses: actions/checkout@v2
+  - name: Cypress run
+    uses: cypress-io/github-action@v4
+        with:
+          test: npm run cy:run
+    uses: EndBug/add-and-commit@v9 # You can change this to use a specific version.
+    with:
+      add: '.'
+      message: 'Added a11y results'
+      push: true
