@@ -20,7 +20,7 @@ const Dashboard = () => {
                 <h5>Another Product Title</h5>
               </CardHeader>
               <CardBody>
-               <img src={require("./images/Square.png")}/>
+               <img src={require("./images/Square.png")} alt="square"/>
                 <p aria-role="image">Another Product Description</p>
                 <img src="foo.png"/>
               </CardBody>
@@ -36,7 +36,7 @@ const Dashboard = () => {
                 <h5>A Final Product Title</h5>
               </CardHeader>
               <CardBody>
-               <img src={require("./images/Triangle.png")}/>
+               <img src={require("./images/Triangle.png")} alt="Triangle"/>
                 <p>A final Product Description</p>
               </CardBody>
             </Card>
