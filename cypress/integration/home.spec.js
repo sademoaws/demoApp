@@ -7,7 +7,7 @@ describe('ABCD Tech Home', () => {
 
     it('Should have main navigation opened', () => {
       cy.get('.card-header')
-      .contains('Hello')
+      .contains('Hello') 
     });
 
 
