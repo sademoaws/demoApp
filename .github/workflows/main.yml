@@ -4,14 +4,15 @@ on:
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-    name: checkout
+  - name: checkout
     uses: actions/checkout@v2
   - name: Cypress run
     uses: cypress-io/github-action@v4
         with:
           test: npm run cy:run
+  - name: commit and push results
     uses: EndBug/add-and-commit@v9 # You can change this to use a specific version.
-    with:
-      add: '.'
-      message: 'Added a11y results'
-      push: true
+      with:
+        add: '.'
+        message: 'Added a11y results'
+        push: true
