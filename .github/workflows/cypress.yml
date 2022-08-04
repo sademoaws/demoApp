@@ -18,3 +18,6 @@ jobs:
         uses: cypress-io/github-action@v4
         with:
           test: npm run cy:run
+      - name: add and commit
+        uses: EndBug/add-and-commit@v9 # You can change this to use a specific version.
+

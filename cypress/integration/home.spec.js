@@ -1,5 +1,5 @@
 // import '@axe-devtools/cypress';
-describe('ABCD Tech Home', () => {
+describe('Demo App Home', () => {
 
     before(() => {
       cy.visit('https://d42n81.github.io/demoApp/')
