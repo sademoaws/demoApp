@@ -9,8 +9,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         env:
-        auth: ${{secrets.auth}}
-        authToken: ${{secrets.authToken}}
+        auth: ${{secrets.AUTH}}
+        authToken: ${{secrets.AUTHTOKEN}}
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
       - name: Cypress run
