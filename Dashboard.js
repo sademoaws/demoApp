@@ -23,7 +23,7 @@ const Dashboard = () => {
                <img src={require("./images/Square.png")}/>
                <img src={require("./images/Circle.png")}>
                 <p>Another Product Description</p>
-                <img src="foo.png" alt="foo"/>
+                <img src="foo.png"/>
               </CardBody>
             </Card>
 
