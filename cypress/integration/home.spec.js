@@ -29,6 +29,7 @@ describe('Demo App Home', () => {
      */
     it('Should have an accessible homepage', () => {
       // cy.setAxeRuleset('wcag2.1').axeAnalyze({name: "home"}).debug();
+      // cy.axeAnalyze({name:"home",options:{runOnly:"best-practice"}})
       cy.axeAnalyze({name:"home"});
       cy.getAxeResults().then(async results => {
         const resultsDir = './a11y-results/cypress/'
