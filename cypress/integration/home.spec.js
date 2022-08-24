@@ -10,10 +10,10 @@ describe('Demo App Home', () => {
       .contains('Hello')
     });
 
-    it('Should have the main banner opened', () => {
-      cy.get('.App-header')
-      .contains('.App-link')
-    });
+    // it('Should have the main banner opened', () => {
+    //   cy.get('.App-header')
+    //   .contains('.App-link')
+    // });
 
 
 
