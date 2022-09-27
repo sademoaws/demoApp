@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# Getting Started
+This project is intented to demonstrate the axe Linter Server executed as a git pre-commit hook to catch ~20% of accessibility violations, the axe DevTools APIs integrated with various automated testing frameworks and executed as GitHub Actions, and our axe DevTools Pro Intelligent Guided tests.
+Please see the appropriate branch for the appropriate axe DevTools API integration.
+The main branch uses axe DevTools Selenium Webdriver JS
+The Cypress branch uses axe DevTools Cypress.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
