@@ -5,7 +5,7 @@ The main branch uses axe DevTools Selenium Webdriver JS
 The Cypress branch uses axe DevTools Cypress.
 You are able to publish your changes using the deploy npm script to push your changes to github pages.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This test project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
