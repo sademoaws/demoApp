@@ -20,11 +20,22 @@ const Dashboard = () => {
                 <h5>Another Product Title</h5>
               </CardHeader>
               <CardBody>
+               <img src={require("./images/Square.png")}/>
+                <p aria-role="image">Another Product Description</p>
+                <img src="foo.png"/>
+              </CardBody>
+            </Card>
+                         <Card className="mb-4">
+            <CardHeader>
+                <h5>A new  Product Title</h5>
+              </CardHeader>
+              <CardBody>
                <img src={require("./images/Square.png")} alt="square"/>
                 <p aria-role="image">Another Product Description</p>
                 <img src="foo.png"/>
               </CardBody>
             </Card>
+
 
 
 
