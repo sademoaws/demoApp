@@ -1,5 +1,5 @@
 {
-  "endTime": "2022-08-24T15:14:10.300Z",
+  "endTime": "2022-11-05T01:11:15.614Z",
   "findings": {
     "testEngine": {
       "name": "axe-core",
@@ -15,7 +15,7 @@
       "orientationAngle": 0,
       "orientationType": "landscape-primary"
     },
-    "timestamp": "2022-08-24T15:14:10.300Z",
+    "timestamp": "2022-11-05T01:11:15.614Z",
     "url": "https://d42n81.github.io/demoApp/",
     "toolOptions": {
       "reporter": "v1"
@@ -37,19 +37,6 @@
         "description": "Ensures <area> elements of image maps have alternate text",
         "help": "Active <area> elements must have alternate text",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.4/area-alt?application=cypress",
-        "nodes": []
-      },
-      {
-        "id": "aria-allowed-attr",
-        "impact": null,
-        "tags": [
-          "cat.aria",
-          "wcag2a",
-          "wcag412"
-        ],
-        "description": "Ensures ARIA attributes are allowed for an element's role",
-        "help": "Elements must only use allowed ARIA attributes",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.4/aria-allowed-attr?application=cypress",
         "nodes": []
       },
       {
@@ -209,32 +196,6 @@
         "description": "Ensures every ARIA tooltip node has an accessible name",
         "help": "ARIA tooltip nodes must have an accessible name",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.4/aria-tooltip-name?application=cypress",
-        "nodes": []
-      },
-      {
-        "id": "aria-valid-attr-value",
-        "impact": null,
-        "tags": [
-          "cat.aria",
-          "wcag2a",
-          "wcag412"
-        ],
-        "description": "Ensures all ARIA attributes have valid values",
-        "help": "ARIA attributes must conform to valid values",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.4/aria-valid-attr-value?application=cypress",
-        "nodes": []
-      },
-      {
-        "id": "aria-valid-attr",
-        "impact": null,
-        "tags": [
-          "cat.aria",
-          "wcag2a",
-          "wcag412"
-        ],
-        "description": "Ensures attributes that begin with aria- are valid ARIA attributes",
-        "help": "ARIA attributes must conform to valid names",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.4/aria-valid-attr?application=cypress",
         "nodes": []
       },
       {
@@ -646,6 +607,53 @@
     ],
     "passes": [
       {
+        "id": "aria-allowed-attr",
+        "impact": null,
+        "tags": [
+          "cat.aria",
+          "wcag2a",
+          "wcag412"
+        ],
+        "description": "Ensures ARIA attributes are allowed for an element's role",
+        "help": "Elements must only use allowed ARIA attributes",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.4/aria-allowed-attr?application=cypress",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "aria-allowed-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA attributes are used correctly for the defined role"
+              }
+            ],
+            "all": [],
+            "none": [
+              {
+                "id": "aria-unsupported-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA attribute is supported"
+              },
+              {
+                "id": "aria-prohibited-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "ARIA attribute is allowed"
+              }
+            ],
+            "impact": null,
+            "html": "<p aria-role=\"image\">Another Product Description</p>",
+            "target": [
+              "p[aria-role=\"image\"]"
+            ]
+          }
+        ]
+      },
+      {
         "id": "aria-hidden-body",
         "impact": null,
         "tags": [
@@ -678,6 +686,52 @@
         ]
       },
       {
+        "id": "aria-valid-attr-value",
+        "impact": null,
+        "tags": [
+          "cat.aria",
+          "wcag2a",
+          "wcag412"
+        ],
+        "description": "Ensures all ARIA attributes have valid values",
+        "help": "ARIA attributes must conform to valid values",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.4/aria-valid-attr-value?application=cypress",
+        "nodes": [
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "aria-valid-attr-value",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA attribute values are valid"
+              },
+              {
+                "id": "aria-errormessage",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "aria-errormessage exists and references elements visible to screen readers that use a supported aria-errormessage technique"
+              },
+              {
+                "id": "aria-level",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "aria-level values are valid"
+              }
+            ],
+            "none": [],
+            "impact": null,
+            "html": "<p aria-role=\"image\">Another Product Description</p>",
+            "target": [
+              "p[aria-role=\"image\"]"
+            ]
+          }
+        ]
+      },
+      {
         "id": "bypass",
         "impact": null,
         "tags": [
@@ -698,9 +752,21 @@
                 "data": null,
                 "relatedNodes": [
                   {
-                    "html": "<h5>Hello</h5>",
+                    "html": "<h5>Product Title</h5>",
                     "target": [
-                      "h5"
+                      ".col-lg-6:nth-child(1) > .mb-4.card:nth-child(1) > .card-header > h5"
+                    ]
+                  },
+                  {
+                    "html": "<h5>Another Product Title</h5>",
+                    "target": [
+                      ".mb-4.card:nth-child(2) > .card-header > h5"
+                    ]
+                  },
+                  {
+                    "html": "<h5>A Final Product Title</h5>",
+                    "target": [
+                      ".col-lg-6:nth-child(2) > .mb-4.card > .card-header > h5"
                     ]
                   }
                 ],
@@ -750,9 +816,9 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<h5>Hello</h5>",
+            "html": "<h5>Product Title</h5>",
             "target": [
-              "h5"
+              ".col-lg-6:nth-child(1) > .mb-4.card:nth-child(1) > .card-header > h5"
             ]
           },
           {
@@ -775,9 +841,109 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<p>world</p>",
+            "html": "<p>Product Description</p>",
             "target": [
-              "p"
+              ".col-lg-6:nth-child(1) > .mb-4.card:nth-child(1) > .card-body > p"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#212529",
+                  "bgColor": "#f7f7f7",
+                  "contrastRatio": 14.39,
+                  "fontSize": "15.0pt (20px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 14.39"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h5>Another Product Title</h5>",
+            "target": [
+              ".mb-4.card:nth-child(2) > .card-header > h5"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#212529",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 15.42,
+                  "fontSize": "12.0pt (16px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 15.42"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p aria-role=\"image\">Another Product Description</p>",
+            "target": [
+              "p[aria-role=\"image\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#212529",
+                  "bgColor": "#f7f7f7",
+                  "contrastRatio": 14.39,
+                  "fontSize": "15.0pt (20px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 14.39"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h5>A Final Product Title</h5>",
+            "target": [
+              ".col-lg-6:nth-child(2) > .mb-4.card > .card-header > h5"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#212529",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 15.42,
+                  "fontSize": "12.0pt (16px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 15.42"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p>A final Product Description</p>",
+            "target": [
+              ".col-lg-6:nth-child(2) > .mb-4.card > .card-body > p"
             ]
           }
         ]
@@ -915,7 +1081,7 @@
       },
       {
         "id": "image-alt",
-        "impact": null,
+        "impact": "critical",
         "tags": [
           "cat.text-alternatives",
           "wcag2a",
@@ -951,7 +1117,85 @@
             "impact": null,
             "html": "<img src=\"/demoApp/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg\" class=\"App-logo\" alt=\"logo\">",
             "target": [
-              "img"
+              ".App-logo"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "has-alt",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "Element has an alt attribute"
+              }
+            ],
+            "all": [],
+            "none": [
+              {
+                "id": "alt-space-value",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "Element has a valid alt attribute value"
+              }
+            ],
+            "impact": null,
+            "html": "<img src=\"data:image/png;base64,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\" alt=\"Circle\">",
+            "target": [
+              "img[alt=\"Circle\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "has-alt",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "Element has an alt attribute"
+              }
+            ],
+            "all": [],
+            "none": [
+              {
+                "id": "alt-space-value",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "Element has a valid alt attribute value"
+              }
+            ],
+            "impact": null,
+            "html": "<img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAR0AAAC6CAIAAAAcZg7OAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAU4SURBVHhe7dMhjkVRDMPQv/9NvyGOCq5GCiirDwy02t8naZt/Je3zr6R9/pW0z7+S9vlX0j7/StrnX0n7/Ctpn38l7fOvpH3+lbTPv5L2+VfSPv9K2udfSfv8K2mffyXt86+kff6VtM+/kvb5V9I+/0ra519J+/wraZ9/Je3zr6R9/pW0z7+S9vlX0j7/StrnX0n7/Ctpn38l7fOvpH3+lbTPv5L2+VfSPv9K2udfSfv8K2mffyXt86/GT/8gkGomGxyRHgRSzWSDI9KDQKqZbHBEehBINZMNjkgPAqlmssERBetJJAhW1Uw2OKJgPYkEwaqayQZHFKwnkSBYVTPZ4IiC9SQSBKtqJhscUbCeRIJgVc1kgyMK1pNIEKyqmWxwRMF6EgmCVTWTDY4oWE8iQbCqZrLBEQXrSSQIVtVMNjiiYD2JBMGqmskGRxSsJ5EgWFUz2eCIgvUkEgSraiYbHFGwnkSCYFXNZIMjCtaTSBCsqplscETBehIJglU1kw2OKFhPIkGwqmaywREF60kkCFbVTDY4omA9iQTBqprJBkcUrCeRIFhVM9ngiIL1JBIEq2omGxxRsJ5EgmBVzWSDIwrWk0gQrKqZbHBEwXoSCYJVNZMNjihYTyJBsKpmssERBetJJAhW1Uw2OKJgPYkEwaqayQZHFKwnkSBYVTPZ4IiC9SQSBKtqJhscUbCeRIJgVc1kgyMK1pNIEKyqmWxwRMF6EgmCVTWTDY4oWE8iQbCqZrLBEQXrSSQIVtVMNjiiYD2JBMGqmskGRxSsJ5EgWFUz2eCIgvUkEgSraiYbHFGwnkSCYFXNZIMjCtaTSBCsqplscETBehIJglU1kw2OKFhPIkGwqmaywREF60kkCFbVTDY4omA9iQTBqprJBkcUrCeRIFhVM9ngiIL1JBIEq2omGxxRsJ5EgmBVzWSDIwrWk0gQrKqZbHBEwXoSCYJVNZMNjihYTyJBsKpmssERBetJJAhW1Uw2OKJgPYkEwaqayQZHFKwnkSBYVTPZ4IiC9SQSBKtqJhscUbCeRIJgVc1kgyMK1pNIEKyqmWxwRMF6EgmCVTWTDY4oWE8iQbCqZrLBEQXrSSQIVtVMNjiiYD2JBMGqmskGRxSsJ5EgWFUz2eCIgvUkEgSraiYbHFGwnkSCYFXNZIMjCtaTSBCsqplscETBehIJglU1kw2OKFhPIkGwqmaywREF60kkCFbVTDY4omA9iQTBqprJBkcUrCeRIFhVM9ngiIL1JBIEq2omGxxRsJ5EgmBVzWSDIwrWk0gQrKqZbHBEwXoSCYJVNZMNjihYTyJBsKpmssERBetJJAhW1Uw2OKJgPYkEwaqayQZHFKwnkSBYVTPZ4IiC9SQSBKtqJhscUbCeRIJgVc1kgyMK1pNIEKyqmWxwRMF6EgmCVTWTDY4oWE8iQbCqZrLBEQXrSSQIVtVMNjiiYD2JBMGqmskGRxSsJ5EgWFUz2eCIgvUkEgSraiYbHJEeBFLNZIMj0oNAqplscER6EEg1kw2OSA8CqWaywRHpQSDVTCbt86+kff6VtM+/kvb5V9I+/0ra519J+/wraZ9/Je3zr6R9/pW0z7+S9vlX0j7/StrnX0n7/Ctpn38l7fOvpH3+lbTPv5L2+VfSPv9K2udfSfv8K2mffyXt86+kff6VtM+/kvb5V9I+/0ra519J+/wraZ9/Je3zr6R9/pW0z7+S9vlX0j7/StrnX0n7/Ctpn38l7fOvpH3+lbTPv5L2+VfSPv9K2udfSfv8K2mffyXt86+kbd/3B6cqJLEvtH9XAAAAAElFTkSuQmCC\" alt=\"square\">",
+            "target": [
+              "img[alt=\"square\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "has-alt",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "Element has an alt attribute"
+              }
+            ],
+            "all": [],
+            "none": [
+              {
+                "id": "alt-space-value",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "Element has a valid alt attribute value"
+              }
+            ],
+            "impact": null,
+            "html": "<img src=\"data:image/png;base64,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\" alt=\"Triangle\">",
+            "target": [
+              "img[alt=\"Triangle\"]"
             ]
           }
         ]
@@ -1027,7 +1271,79 @@
             "impact": null,
             "html": "<img src=\"/demoApp/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg\" class=\"App-logo\" alt=\"logo\">",
             "target": [
-              "img"
+              ".App-logo"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "no-focusable-content",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element does not have focusable descendants"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAR0AAAC6CAIAAAAcZg7OAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAZ2SURBVHhe7dPhQqNKEEThff+X3qve0+uMQAJSxJg+38/uiUIx9eevpDR7JeXZKynPXkl59krKs1dSnr2S8uyVlGevpDx7JeXZKynPXkl59krKs1dSnr2S8uyVlGevpDx7JeXZKynPXkl59krKs1dSnr2S8uyVlGevnsif3fiBnpVf6MdQkRz+rp6AH+OhaMDF+Gf6OX6Dy3HZfwgPoccy9wtxtZ8AD6RHMfE87vJx/H4HfnAcv9fFDDqJy7sPvwnhj+7Db3QZI87gwt7D6Yvxz+7htC5guGdxSW/i6MPx72/iqKKM9RTu5gYOPQEeaAOHlGOm38SV3MChJ8PDbeCQEkzzMK7hBg49MR50A4d0jjkew+1bw4lfgodewwmdYIgHcO/WcOJX4dHXcELfZYJ7ceMWWP9avMYaTug4s7uPW7bA+iXwSgusdZDB3cH9WmD9QnixBdY6wtRu4WYtsH45vN4Ca+1mZJu4UzN2L41XnbHTPua1jts0Y9cALzxjpx0MawX3aMauDV57xk73mNRX3KAZu2Z4+Rk73WRME+7OjF1LRDBjp21m9IlbM2PXGEHM2GmDAX3iygxYtEccAxbaYEDgvgxY6AOhDFhojem846YMWGhANAMWWjCad1yTAQsNiGbGTjNzsVQHENCAhWbdc+F2DFhoAzENWGhgr75ioW0kVZhq0DoU7sWAhW4irAELlb6JcCMGLLQDkQ1Y6IO9+sRCOxDZgIU+NI2DuzBgod0IbsBC9up/THUQ8RWm6tkrbsGAhQ4ivgGL9uyVV+EUQixM22sXBN9/wELfQogDFr117xVTnUCUhWlv9kpnEWVh2luvFPjyhalOI9DCtDF7pQACLUwbaxQB33zAQqcR6IBFV317xVQhxFqYdmWvlEGshWlX9koZxDpg0VKXl+dTF6aKItzCtCV7pRjCLUxbsleKIdzCtCV7pRjCHbDop8Wb85ELU12AiAvTfuyVkoi4MO3HXimJiAvTfuyVkoi4MO3HXimJiAvTfuyVwki5MG3m9V+bz1uY6jIEXZg2Y68URtCFaTP2SmEEXZg2Y68URtCFaTP2SmEEXZg2Y68URtCFaTP2SmEEXZg2Y68URtCFaTP2SmEEXZg2Y68URtCFaTP2SmEEXZg2Y68URtCFaTP2SmEEXZg2Y68URtCFaTPtevWGha5ByoVpMy1emy9cmOoCRFyY9mOvlETEhWk/9kpJRFyY9mOvlETEhWk/9kpJRFyY9tPlzfnOhamiCHfAoh97pRjCLUxbsleKIdzCtCV7pRjCLUxbavTyfO3CVCHEOmDRkr1SBrEWpl3ZK2UQa2HaVd9evWGh0wh0wKKrXu/PNy9MdRqBFqaN2SsFEGhh2li7CPjyhalOIMoBi8bslc4iysK0t+69esNC30KIAxa9dUyB71+Y6lsIsTBtz169Y6GDiG/Aor2mQXALClMdRHyFqezVPyy0G8ENWKhtr95wFwYstAORDVjog736xEI7ENmAhT60joMbMWChmwhrwEKleyLci8JUNxFWYaqBvfqKhTYQ04CFBobiRTmAgAYsNDOXlbvyhp0GRDNjp5m5vOOODFhoQDQDFlowGnBTBiz0gVAGLLTGdD5xXwYs2iOOAQttMKAJt2bAojGCmLHTBgOacGtm7Foighk7bTOjr7g7M3bN8PIzdrrJmFZwg2bs2uC1Z+x0j0mt4x7N2DXAC8/YaQfD2sRtmrF7abzqjJ32Ma9buFMLrF8Or7fAWrsZ2R3crAXWL4QXW2CtI0ztPu7XAuuXwCstsNZBBrcLt2wNJ34tXmMNJ3Sc2R3AdVvDiV+FR1/DCX2XCR7DvVvDiV+Ch17DCZ1giIdx+zZw6InxoBs4pHPM8Zu4hhs49GR4uA0cUoJpnsKV3MChJ8ADbeCQcsz0LO7mTRx9OP79TRxVlLFmcEnv4fTF+Gf3cFoXMNwkLuw+/CaEP7oPv9FljDiPy3sQP96Nnx3Ej3Uxg74KF/lp8Fh6COO+HPf6h/AQeixzfxxu+kPwL/VD/AA/g+sfxZ/WE/BjPAvKsRs/01Py80h59krKs1dSnr2S8uyVlGevpDx7JeXZKynPXkl59krKs1dSnr2S8uyVlGevpDx7JeXZKynPXkl59krKs1dSnr2S8uyVlGevpDx7JeXZKynPXkl59krKs1dSnr2S8uyVlGevpDx7JeXZKynPXkl59kpK+/v3P0aIhTRXaOJiAAAAAElFTkSuQmCC\" alt=\"Circle\">",
+            "target": [
+              "img[alt=\"Circle\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "no-focusable-content",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element does not have focusable descendants"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAR0AAAC6CAIAAAAcZg7OAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAU4SURBVHhe7dMhjkVRDMPQv/9NvyGOCq5GCiirDwy02t8naZt/Je3zr6R9/pW0z7+S9vlX0j7/StrnX0n7/Ctpn38l7fOvpH3+lbTPv5L2+VfSPv9K2udfSfv8K2mffyXt86+kff6VtM+/kvb5V9I+/0ra519J+/wraZ9/Je3zr6R9/pW0z7+S9vlX0j7/StrnX0n7/Ctpn38l7fOvpH3+lbTPv5L2+VfSPv9K2udfSfv8K2mffyXt86/GT/8gkGomGxyRHgRSzWSDI9KDQKqZbHBEehBINZMNjkgPAqlmssERBetJJAhW1Uw2OKJgPYkEwaqayQZHFKwnkSBYVTPZ4IiC9SQSBKtqJhscUbCeRIJgVc1kgyMK1pNIEKyqmWxwRMF6EgmCVTWTDY4oWE8iQbCqZrLBEQXrSSQIVtVMNjiiYD2JBMGqmskGRxSsJ5EgWFUz2eCIgvUkEgSraiYbHFGwnkSCYFXNZIMjCtaTSBCsqplscETBehIJglU1kw2OKFhPIkGwqmaywREF60kkCFbVTDY4omA9iQTBqprJBkcUrCeRIFhVM9ngiIL1JBIEq2omGxxRsJ5EgmBVzWSDIwrWk0gQrKqZbHBEwXoSCYJVNZMNjihYTyJBsKpmssERBetJJAhW1Uw2OKJgPYkEwaqayQZHFKwnkSBYVTPZ4IiC9SQSBKtqJhscUbCeRIJgVc1kgyMK1pNIEKyqmWxwRMF6EgmCVTWTDY4oWE8iQbCqZrLBEQXrSSQIVtVMNjiiYD2JBMGqmskGRxSsJ5EgWFUz2eCIgvUkEgSraiYbHFGwnkSCYFXNZIMjCtaTSBCsqplscETBehIJglU1kw2OKFhPIkGwqmaywREF60kkCFbVTDY4omA9iQTBqprJBkcUrCeRIFhVM9ngiIL1JBIEq2omGxxRsJ5EgmBVzWSDIwrWk0gQrKqZbHBEwXoSCYJVNZMNjihYTyJBsKpmssERBetJJAhW1Uw2OKJgPYkEwaqayQZHFKwnkSBYVTPZ4IiC9SQSBKtqJhscUbCeRIJgVc1kgyMK1pNIEKyqmWxwRMF6EgmCVTWTDY4oWE8iQbCqZrLBEQXrSSQIVtVMNjiiYD2JBMGqmskGRxSsJ5EgWFUz2eCIgvUkEgSraiYbHFGwnkSCYFXNZIMjCtaTSBCsqplscETBehIJglU1kw2OKFhPIkGwqmaywREF60kkCFbVTDY4omA9iQTBqprJBkcUrCeRIFhVM9ngiIL1JBIEq2omGxxRsJ5EgmBVzWSDIwrWk0gQrKqZbHBEwXoSCYJVNZMNjihYTyJBsKpmssERBetJJAhW1Uw2OKJgPYkEwaqayQZHFKwnkSBYVTPZ4IiC9SQSBKtqJhscUbCeRIJgVc1kgyMK1pNIEKyqmWxwRMF6EgmCVTWTDY4oWE8iQbCqZrLBEQXrSSQIVtVMNjiiYD2JBMGqmskGRxSsJ5EgWFUz2eCIgvUkEgSraiYbHJEeBFLNZIMj0oNAqplscER6EEg1kw2OSA8CqWaywRHpQSDVTCbt86+kff6VtM+/kvb5V9I+/0ra519J+/wraZ9/Je3zr6R9/pW0z7+S9vlX0j7/StrnX0n7/Ctpn38l7fOvpH3+lbTPv5L2+VfSPv9K2udfSfv8K2mffyXt86+kff6VtM+/kvb5V9I+/0ra519J+/wraZ9/Je3zr6R9/pW0z7+S9vlX0j7/StrnX0n7/Ctpn38l7fOvpH3+lbTPv5L2+VfSPv9K2udfSfv8K2mffyXt86+kbd/3B6cqJLEvtH9XAAAAAElFTkSuQmCC\" alt=\"square\">",
+            "target": [
+              "img[alt=\"square\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "no-focusable-content",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element does not have focusable descendants"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<img src=\"foo.png\">",
+            "target": [
+              "img[src$=\"foo.png\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "no-focusable-content",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element does not have focusable descendants"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<img src=\"data:image/png;base64,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\" alt=\"Triangle\">",
+            "target": [
+              "img[alt=\"Triangle\"]"
             ]
           }
         ]
@@ -1075,7 +1391,109 @@
         ]
       }
     ],
-    "violations": []
+    "violations": [
+      {
+        "id": "aria-valid-attr",
+        "impact": "critical",
+        "tags": [
+          "cat.aria",
+          "wcag2a",
+          "wcag412"
+        ],
+        "description": "Ensures attributes that begin with aria- are valid ARIA attributes",
+        "help": "ARIA attributes must conform to valid names",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.4/aria-valid-attr?application=cypress",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "aria-valid-attr",
+                "data": [
+                  "aria-role"
+                ],
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "Invalid ARIA attribute name: aria-role"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "critical",
+            "html": "<p aria-role=\"image\">Another Product Description</p>",
+            "target": [
+              "p[aria-role=\"image\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Invalid ARIA attribute name: aria-role"
+          }
+        ]
+      },
+      {
+        "id": "image-alt",
+        "impact": "critical",
+        "tags": [
+          "cat.text-alternatives",
+          "wcag2a",
+          "wcag111",
+          "section508",
+          "section508.22.a",
+          "ACT"
+        ],
+        "description": "Ensures <img> elements have alternate text or a role of none or presentation",
+        "help": "Images must have alternate text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.4/image-alt?application=cypress",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "has-alt",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "Element does not have an alt attribute"
+              },
+              {
+                "id": "aria-label",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "aria-label attribute does not exist or is empty"
+              },
+              {
+                "id": "aria-labelledby",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty"
+              },
+              {
+                "id": "non-empty-title",
+                "data": {
+                  "messageKey": "noAttr"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has no title attribute"
+              },
+              {
+                "id": "presentational-role",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "minor",
+                "message": "Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "critical",
+            "html": "<img src=\"foo.png\">",
+            "target": [
+              "img[src$=\"foo.png\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          }
+        ]
+      }
+    ]
   },
   "id": "home",
   "name": "@axe-devtools-cypress",
