@@ -15,6 +15,16 @@ const Dashboard = () => {
               </CardBody>
             </Card>
 
+           <Card className="mb-4">
+            <CardHeader>
+                <h5>Product Title</h5>
+              </CardHeader>
+              <CardBody>
+               <img src={require("./images/Triangle")}/>
+                <p>Product Description</p>
+              </CardBody>
+            </Card>
+
         
 
             <Card className="mb-4">
