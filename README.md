@@ -2,7 +2,8 @@
 This project is intented to demonstrate the axe Linter Server executed as a git pre-commit hook to catch ~20% of accessibility violations, the axe DevTools APIs integrated with various automated testing frameworks and executed as GitHub Actions to catch 57% of accessibility violations , and our axe DevTools Pro Intelligent Guided Tests to catch up to 80% of accessibility violations.
 Please see the appropriate branch for the appropriate axe DevTools API integration. 
 
- test...
+Simple Change Added
+
 The main branch uses axe DevTools Selenium Webdriver JS
 The Cypress branch uses axe DevTools Cypress.
 You are able to publish your changes using the deploy npm script to push your changes to github pages.
