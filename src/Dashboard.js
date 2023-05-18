@@ -21,7 +21,7 @@ const Dashboard = () => {
               </CardHeader>
               <CardBody>
                <img src={require("./images/Square.png")} alt="square"/>
-                <p aria-role="image">Another Product Description</p>
+                <p aria-role="image">Another Product Description</p> 
                 <img src="foo.png"/>
               </CardBody>
             </Card>
